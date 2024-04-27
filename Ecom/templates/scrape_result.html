@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scraping Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Scraping Result</h1>
+        {% if error %}
+        <p>{{ error }}</p>
+        {% else %}
+        <div class="content">
+            <ul>
+                {% for item in content %}
+                <li>{{ item }}</li> <!-- strip() removes leading and trailing whitespaces -->
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

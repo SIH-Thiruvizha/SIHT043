@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications Marketplace</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Publications Marketplace</h1>
+        <a href="/sell" class="sell-btn">Sell</a>
+        <a href="/scrape" class="scrape-btn">Web Scrape</a> <!-- Add web scraping button -->
+        <a href="/analytics" class="analytics-btn">Analytics</a> <!-- Add analytics button -->
+        <div class="publications">
+            {% for publication in publications %}
+            <div class="publication">
+                <h2>{{ publication['book_name'] }}</h2>
+                <img src="{{ publication['book_photo'] }}" alt="{{ publication['book_name'] }}">
+                <p>Description: {{ publication['description'] }}</p>
+                <p>Price: ${{ publication['price'] }}</p>
+                <a href="/publication/{{ loop.index0 }}">View Details</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

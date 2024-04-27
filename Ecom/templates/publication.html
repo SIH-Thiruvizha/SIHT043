@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publication Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Publication Details</h1>
+        <div class="publication-details">
+            <h2>{{ publication['book_name'] }}</h2>
+            <img src="{{ publication['book_photo'] }}" alt="{{ publication['book_name'] }}">
+            <p>Description: {{ publication['description'] }}</p>
+            <p>Price: ${{ publication['price'] }}</p>
+            <p>Email: {{ publication['email'] }}</p>
+        </div>
+    </div>
+</body>
+</html>
